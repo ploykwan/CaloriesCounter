@@ -118,6 +118,7 @@
 
     <Button
         android:id="@+id/btnEnter"
+        android:onClick="enterButton"
         android:layout_width="334dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

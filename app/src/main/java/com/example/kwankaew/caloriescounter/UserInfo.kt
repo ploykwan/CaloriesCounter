@@ -19,6 +19,7 @@ class UserInfo : AppCompatActivity() {
     internal lateinit var sp: Spinner
     var bmi = 0.0
     var cal = 0.0
+    var vari = 1.2
     var move = arrayOf("")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,18 +30,9 @@ class UserInfo : AppCompatActivity() {
         move = arrayOf("นั่งทำงานอยู่กับที่ และไม่ได้ออกกำลังกายเลย", "ออกกำลังกายหรือเล่นกีฬาเล็กน้อย ประมาณอาทิตย์ละ 1-3 วัน",
                 "ออกกำลังกายหรือเล่นกีฬาปานกลาง ประมาณอาทิตย์ละ 3-5 วัน,", "ออกกำลังกายหรือเล่นกีฬาอย่างหนัก ประมาณอาทิตย์ละ 6-7 วัน",
                 "ออกกำลังกายหรือเล่นกีฬาอย่างหนักทุกวันเช้าเย็น");
+
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, move)
         sp.adapter = adapter
-
-
-    }
-
-    fun enterButton(view: View){
-        val heigth = inputHeight.text.toString()
-        val weight = inputWeight.text.toString()
-        val gender = genderSwitch.isChecked.toString()
-        var vari = 1.2
-        val age = inputAge.text.toString()
 
         sp.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -63,6 +55,16 @@ class UserInfo : AppCompatActivity() {
             }
 
         }
+
+
+    }
+
+    fun enterButton(view: View){
+        val heigth = inputHeight.text.toString()
+        val weight = inputWeight.text.toString()
+        val gender = genderSwitch.isChecked.toString()
+        val age = inputAge.text.toString()
+        
         calculate(heigth, weight, gender, age, vari)
     }
 
@@ -89,7 +91,6 @@ class UserInfo : AppCompatActivity() {
 
         caloriesLabel.setText(java.lang.String.format("%.0f", cal))
         BMILabel.setText(java.lang.String.format("%.2f", bmi))
-
 
     }
 
