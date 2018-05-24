@@ -19,27 +19,25 @@ class Main : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_searching_menu)
 
-        btnUserInfo.setOnClickListener {
-            val intent = Intent(this, UserInfo::class.java)
-            startActivity(intent)
-        }
-
-        btnSearch.setOnClickListener {
-            SimpleSearchDialogCompat(this@Main, "Searching menu", "What are you looking for...?", null, initData(), SearchResultListener { baseSearchDialogCompat, item, position ->
-//                Toast.makeText(this@Main, item.title, Toast.LENGTH_SHORT).show()
-                ate.setText(item.toString());
-                baseSearchDialogCompat.dismiss()
-            }).show()
-        }
-
-
-
     }
 
     private fun initData(): ArrayList<Menu> {
         var menu = ThaiMenuRepository()
         menu.loadAllMenu()
         return menu.getMenus()
+    }
+
+    fun userInfoButton(view: View){
+        val intent = Intent(this, UserInfo::class.java)
+        startActivity(intent)
+    }
+
+    fun searchButton(view: View){
+        SimpleSearchDialogCompat(this@Main, "Searching menu", "What are you looking for...?", null, initData(), SearchResultListener { baseSearchDialogCompat, item, position ->
+            //                Toast.makeText(this@Main, item.title, Toast.LENGTH_SHORT).show()
+            ate.setText(item.toString());
+            baseSearchDialogCompat.dismiss()
+        }).show()
     }
 
 

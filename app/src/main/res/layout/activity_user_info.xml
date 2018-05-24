@@ -148,6 +148,7 @@
 
     <Button
         android:id="@+id/btnBack"
+        android:onClick="backButton"
         android:layout_width="60dp"
         android:layout_height="36dp"
         android:layout_alignParentStart="true"

@@ -19,54 +19,56 @@ class UserInfo : AppCompatActivity() {
     internal lateinit var sp: Spinner
     var bmi = 0.0
     var cal = 0.0
+    var move = arrayOf("")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_info)
 
         sp = findViewById(R.id.spinner) as Spinner
-        val move = arrayOf("นั่งทำงานอยู่กับที่ และไม่ได้ออกกำลังกายเลย", "ออกกำลังกายหรือเล่นกีฬาเล็กน้อย ประมาณอาทิตย์ละ 1-3 วัน",
+        move = arrayOf("นั่งทำงานอยู่กับที่ และไม่ได้ออกกำลังกายเลย", "ออกกำลังกายหรือเล่นกีฬาเล็กน้อย ประมาณอาทิตย์ละ 1-3 วัน",
                 "ออกกำลังกายหรือเล่นกีฬาปานกลาง ประมาณอาทิตย์ละ 3-5 วัน,", "ออกกำลังกายหรือเล่นกีฬาอย่างหนัก ประมาณอาทิตย์ละ 6-7 วัน",
                 "ออกกำลังกายหรือเล่นกีฬาอย่างหนักทุกวันเช้าเย็น");
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, move)
         sp.adapter = adapter
 
-        btnEnter.setOnClickListener {
-            val heigth = inputHeight.text.toString()
-            val weight = inputWeight.text.toString()
-            val gender = genderSwitch.isChecked.toString()
-            var vari = 1.2
-            val age = inputAge.text.toString()
 
-            sp.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    var chosen = move.get(position)
-                    if (chosen.equals("1")) {
-                        vari = 1.2
-                    } else if (chosen.equals("2")) {
-                        vari = 1.375
-                    } else if (chosen.equals("3")) {
-                        vari = 1.55
-                    } else if (chosen.equals("4")) {
-                        vari = 1.725
-                    } else if (chosen.equals("5")) {
-                        vari = 1.9
-                    }
+    }
+
+    fun enterButton(view: View){
+        val heigth = inputHeight.text.toString()
+        val weight = inputWeight.text.toString()
+        val gender = genderSwitch.isChecked.toString()
+        var vari = 1.2
+        val age = inputAge.text.toString()
+
+        sp.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                var chosen = move.get(position)
+                if (chosen.equals("1")) {
+                    vari = 1.2
+                } else if (chosen.equals("2")) {
+                    vari = 1.375
+                } else if (chosen.equals("3")) {
+                    vari = 1.55
+                } else if (chosen.equals("4")) {
+                    vari = 1.725
+                } else if (chosen.equals("5")) {
+                    vari = 1.9
                 }
+            }
 
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-
-                }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
-            calculate(heigth, weight, gender, age, vari)
-        }
-        btnBack.setOnClickListener {
-            setCalories(this.cal)
-            val intent = Intent(this, Main::class.java)
-            startActivity(intent)
-        }
 
+        }
+        calculate(heigth, weight, gender, age, vari)
+    }
+
+    fun backButton(view: View){
+        val intent = Intent(this, Main::class.java)
+        startActivity(intent)
     }
 
     fun calculate(h: String, w: String, g: String, a: String, v: Double) {

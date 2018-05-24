@@ -10,6 +10,7 @@
 
     <Button
         android:id="@+id/btnSearch"
+        android:onClick="searchButton"
         android:layout_width="154dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -20,6 +21,7 @@
 
     <Button
         android:id="@+id/btnUserInfo"
+        android:onClick="userInfoButton"
         android:layout_width="219dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
