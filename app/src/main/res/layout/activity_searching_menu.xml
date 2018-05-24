@@ -47,10 +47,22 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="350dp"
         android:text=":)"
-        android:textColor="@android:color/black"
-        android:textSize="26sp"
+        android:textColor="#757575"
+        android:textSize="20sp"
         android:textStyle="bold|italic"
         />
+
+    <!--<TextView-->
+        <!--android:id="@+id/yourRemainningCal"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_marginTop="420dp"-->
+        <!--android:layout_marginLeft="235dp"-->
+        <!--android:text="0000"-->
+        <!--android:textColor="@android:color/black"-->
+        <!--android:textSize="20sp"-->
+        <!--android:textStyle="bold|italic" />-->
 
 
 </RelativeLayout>
