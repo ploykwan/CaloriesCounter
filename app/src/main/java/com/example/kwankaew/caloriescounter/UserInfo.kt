@@ -28,7 +28,7 @@ class UserInfo : AppCompatActivity() {
 
         sp = findViewById(R.id.spinner) as Spinner
         move = arrayOf("นั่งทำงานอยู่กับที่ และไม่ได้ออกกำลังกายเลย", "ออกกำลังกายหรือเล่นกีฬาเล็กน้อย ประมาณอาทิตย์ละ 1-3 วัน",
-                "ออกกำลังกายหรือเล่นกีฬาปานกลาง ประมาณอาทิตย์ละ 3-5 วัน,", "ออกกำลังกายหรือเล่นกีฬาอย่างหนัก ประมาณอาทิตย์ละ 6-7 วัน",
+                "ออกกำลังกายหรือเล่นกีฬาปานกลาง ประมาณอาทิตย์ละ 3-5 วัน", "ออกกำลังกายหรือเล่นกีฬาอย่างหนัก ประมาณอาทิตย์ละ 6-7 วัน",
                 "ออกกำลังกายหรือเล่นกีฬาอย่างหนักทุกวันเช้าเย็น");
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, move)
@@ -37,15 +37,15 @@ class UserInfo : AppCompatActivity() {
         sp.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 var chosen = move.get(position)
-                if (chosen.equals("1")) {
+                if (chosen.equals("นั่งทำงานอยู่กับที่ และไม่ได้ออกกำลังกายเลย")) {
                     vari = 1.2
-                } else if (chosen.equals("2")) {
+                } else if (chosen.equals("ออกกำลังกายหรือเล่นกีฬาเล็กน้อย ประมาณอาทิตย์ละ 1-3 วัน")) {
                     vari = 1.375
-                } else if (chosen.equals("3")) {
+                } else if (chosen.equals("ออกกำลังกายหรือเล่นกีฬาปานกลาง ประมาณอาทิตย์ละ 3-5 วัน")) {
                     vari = 1.55
-                } else if (chosen.equals("4")) {
+                } else if (chosen.equals("ออกกำลังกายหรือเล่นกีฬาอย่างหนัก ประมาณอาทิตย์ละ 6-7 วัน")) {
                     vari = 1.725
-                } else if (chosen.equals("5")) {
+                } else if (chosen.equals("ออกกำลังกายหรือเล่นกีฬาอย่างหนักทุกวันเช้าเย็น")) {
                     vari = 1.9
                 }
             }
@@ -64,7 +64,7 @@ class UserInfo : AppCompatActivity() {
         val weight = inputWeight.text.toString()
         val gender = genderSwitch.isChecked.toString()
         val age = inputAge.text.toString()
-        
+
         calculate(heigth, weight, gender, age, vari)
     }
 
