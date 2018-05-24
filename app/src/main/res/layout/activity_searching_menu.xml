@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80DEEA"
+    >
+
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="214dp"
+        android:background="#00BCD4"
+        android:text="What you eat? :)" />
+
+    <Button
+        android:id="@+id/btnUserInfo"
+        android:layout_width="219dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="169dp"
+        android:layout_marginTop="280dp"
+        android:background="#00BCD4"
+        android:text="User Information" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:text="🍲"
+        android:textSize="100dp" />
+
+    <TextView
+        android:id="@+id/ate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="350dp"
+        android:text=":)"
+        android:textColor="@android:color/black"
+        android:textSize="26sp"
+        android:textStyle="bold|italic"
+        />
+
+
+</RelativeLayout>
+
